@@ -1,22 +1,16 @@
 plugins {
-    id "com.github.node-gradle.node" version "3.5.1"
+  id "com.github.node-gradle.node" version "7.0.0" // Versão estável do plugin
 }
 
 node {
-    version = '16.18.0'  // Specify your Node.js version
-    npmVersion = '9.8.0' // Specify your NPM version
-    download = true      // Downloads Node.js automatically if not present
+  version = '12.22.12'
+  npmVersion = '8.0.0'
+  download = true
 }
 
-task npmInstall(type: NpmTask) {
-    description = "Install Node.js dependencies"
-    args = ['install']
-}
 
-task npmBuild(type: NpmTask) {
-    description = "Build the project using npm"
-    args = ['run', 'build']
-    dependsOn npmInstall
+task buildApp(type: NpmTask) {
+  description = 'Executa o build da aplicação usando npm run build'
+  dependsOn 'npmInstall'  // Task já criada automaticamente pelo plugin
+  args = ['run', 'build']
 }
-
-build.dependsOn npmBuild
