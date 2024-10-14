@@ -20,4 +20,4 @@ task npmBuild(type: NpmTask) {
     dependsOn npmInstall // Ensure this depends on npmInstall
 }
 
-build.dependsOn npmBuild // Make sure build depends on npmBuild
+
