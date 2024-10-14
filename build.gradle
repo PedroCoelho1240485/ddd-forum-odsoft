@@ -13,12 +13,18 @@ node {
 task npmInstallCustom(type: NpmTask) {
     description = "Install Node.js dependencies"
     args = ['install']
+    doFirst {
+        println 'Running npm install...'
+    }
 }
 
 task npmBuild(type: NpmTask) {
     description = "Build the project using npm"
     args = ['run', 'build']
     dependsOn npmInstall // Ensure this depends on npmInstall
+    doFirst {
+        println 'Running npm build...'
+    }
 }
 
 
