@@ -27,6 +27,7 @@ task npmBuild(type: NpmTask) {
     }
 }
 
+//Parte testes
 
 task npmTest(type: NpmTask) {
     description = "Run unit tests"
@@ -35,7 +36,6 @@ task npmTest(type: NpmTask) {
         println 'Running unit tests...'
     }
 }
-//Parte testes
 
 task npmTestDev(type: NpmTask) {
     description = "Run development tests"
