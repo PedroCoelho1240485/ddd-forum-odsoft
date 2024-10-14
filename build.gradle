@@ -9,8 +9,15 @@ node {
 }
 
 
-task buildApp(type: NpmTask) {
-  description = 'Executa o build da aplicação usando npm run build'
-  dependsOn 'npmInstall'  // Task já criada automaticamente pelo plugin
-  args = ['run', 'build']
+task npmInstall(type: NpmTask) {
+    description = "Install Node.js dependencies"
+    args = ['install']
 }
+
+task npmBuild(type: NpmTask) {
+    description = "Build the project using npm"
+    args = ['run', 'build']
+    dependsOn npmInstall
+}
+
+build.dependsOn npmBuild
