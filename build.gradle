@@ -10,13 +10,14 @@ node {
 // Ensure this is the only npmInstall task defined
 
 // Ensure this is the only npmInstallCustom task defined
-task npmInstall(type: NpmTask) {
+task npmInstallCustom(type: NpmTask) {
     description = "Install Node.js dependencies"
     args = ['install']
     doFirst {
         println 'Running npm install...'
     }
 }
+
 
 task npmBuild(type: NpmTask) {
     description = "Build the project using npm"
