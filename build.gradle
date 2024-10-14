@@ -8,10 +8,10 @@ node {
   download = true
 }
 // Ensure this is the only npmInstall task defined
-if (!tasks.findByName('npmInstall')) {
-    tasks.create('npmInstall', NpmInstallTask) {
-        // Configure your task here
-    }
+
+task npmInstall(type: NpmTask) {
+    description = "Install Node.js dependencies"
+    args = ['install']
 }
 
 task npmBuild(type: NpmTask) {
