@@ -8,6 +8,13 @@ node {
     download = true      // Downloads Node.js automatically if not present
 }
 
+// Ensure this is the only npmInstall task defined
+if (!tasks.findByName('npmInstall')) {
+    tasks.create('npmInstall', NpmInstallTask) {
+        // Configure your task here
+    }
+}
+
 task npmBuild(type: NpmTask) {
     description = "Build the project using npm"
     args = ['run', 'build']
