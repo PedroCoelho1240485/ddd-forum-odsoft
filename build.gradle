@@ -21,7 +21,7 @@ task npmInstallCustom(type: NpmTask) {
 task npmBuild(type: NpmTask) {
     description = "Build the project using npm"
     args = ['run', 'build']
-    dependsOn npmInstall // Ensure this depends on npmInstall
+    dependsOn npmInstallCustom // Ensure this depends on npmInstall
     doFirst {
         println 'Running npm build...'
     }
