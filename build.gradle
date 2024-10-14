@@ -1,13 +1,12 @@
 plugins {
-  id "com.github.node-gradle.node" version "7.0.0" // Versão estável do plugin
+    id "com.github.node-gradle.node" version "3.5.1"
 }
 
 node {
-  version = '12.22.12'
-  npmVersion = '8.0.0'
-  download = true
+    version = '16.18.0'  // Specify your Node.js version
+    npmVersion = '9.8.0' // Specify your NPM version
+    download = true      // Downloads Node.js automatically if not present
 }
-
 
 task npmInstall(type: NpmTask) {
     description = "Install Node.js dependencies"
@@ -19,3 +18,5 @@ task npmBuild(type: NpmTask) {
     args = ['run', 'build']
     dependsOn npmInstall
 }
+
+build.dependsOn npmBuild
