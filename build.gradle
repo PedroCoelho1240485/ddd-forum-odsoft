@@ -28,3 +28,34 @@ task npmBuild(type: NpmTask) {
 }
 
 
+task npmTest(type: NpmTask) {
+    description = "Run unit tests"
+    args = ['run', 'test']
+    doFirst {
+        println 'Running unit tests...'
+    }
+}
+//Parte testes
+
+task npmTestDev(type: NpmTask) {
+    description = "Run development tests"
+    args = ['run', 'test:dev']
+    doFirst {
+        println 'Running development tests...'
+    }
+}
+
+task npmTestApi(type: NpmTask) {
+    description = "Run API tests"
+    args = ['run', 'test:api']
+    doFirst {
+        println 'Running API tests...'
+    }
+}
+
+task runAllTests {
+    dependsOn npmTest, npmTestDev, npmTestApi
+    doFirst {
+        println 'Running all tests...'
+    }
+}
