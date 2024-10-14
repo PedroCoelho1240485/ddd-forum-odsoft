@@ -8,12 +8,6 @@ node {
     download = true      // Downloads Node.js automatically if not present
 }
 
-// Ensure this is the only npmInstall task defined
-task npmInstall(type: NpmTask) {
-    description = "Install Node.js dependencies"
-    args = ['install']
-}
-
 task npmBuild(type: NpmTask) {
     description = "Build the project using npm"
     args = ['run', 'build']
